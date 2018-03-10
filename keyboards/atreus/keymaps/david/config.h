@@ -39,24 +39,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PREVENT_STUCK_MODIFIERS
 #define IGNORE_MOD_TAP_INTERRUPT
 
-
-
 // Change this to how you wired your keyboard
-// COLS: Left to right, ROWS: Top to bottom
-#if defined(ATREUS_ASTAR)
-#   define MATRIX_ROW_PINS { D0, D1, D3, D2 }
-#if defined(PCBDOWN)
-#   define MATRIX_COL_PINS { B7, D6, F7, F6, B6, D4, E6, B4, B5, C6, D7 }
-#else
-#   define MATRIX_COL_PINS { B7, D6, F7, F6, B6, D4, E6, B4, B5, C6, D7 }
-/* #   define MATRIX_COL_PINS { D7, C6, B5, B4, E6, D4, B6, F6, F7, D6, B7 } */
-#endif
-#   define UNUSED_PINS
-#elif defined(ATREUS_TEENSY2)
-#   define MATRIX_ROW_PINS { D0, D1, D2, D3 }
-#   define MATRIX_COL_PINS { F6, F5, F4, B7, B6, B5, B4, B3, B2, B1, B0 }
-#   define UNUSED_PINS
-#endif
+#define MATRIX_ROW_PINS { D0, D1, D3, D2 }
+/* #define MATRIX_COL_PINS { D7, C6, B5, B4, E6, D4, B6, F6, F7, D6, B7 } */
+/* #define MATRIX_COL_PINS { B7, D6, F7, F6, B6, D4, E6, B4, B5, C6, D7 } */
+#define UNUSED_PINS
+
 
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
@@ -71,14 +59,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEBOUNCING_DELAY 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+/* #define LOCKING_SUPPORT_ENABLE */
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+/* #define LOCKING_RESYNC_ENABLE */
 
 /* key combination for command */
-#define IS_COMMAND() ( \
-    keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
-)
+/* #define IS_COMMAND() ( \ */
+    /* keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \ */
+/* ) */
 
 /*
  * Feature disable options

@@ -2,7 +2,6 @@
 
 #include "atreus.h"
 
-
 // Name the layers for readability
 
 #define COLE 0
