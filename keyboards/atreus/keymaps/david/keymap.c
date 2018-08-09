@@ -68,13 +68,31 @@ enum custom_keycodes {
 
 };
 
+/* Template:
+ *   .     .     .     .     .         ||          .     .     .     .     .
+ *   .     .     .     .     .         ||          .     .     .     .     .
+ *   .     .     .     .     .         ||          .     .     .     .     .
+ *   .     .     .     .     .         ||          .     .     .     .     .
+ *   .     .     .     .     .     .   ||   .      .     .     .     .     .
+ */
+
+/*
+[] = KEYMAP (
+  _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
+  _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
+  _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
+  _,       _,      _,       _,       _,       _,       _,        _,       _,       _,       _,       _,
+  ),
+*/
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* COLEMAK
    *
-   *   q     w     f     p     g        ||        j     l     u     y     ;
-   *   a     r     s     t     d        ||        h     n     e     i     o
-   *   z     x     c     v     b        ||        k     m     ,    dot    /
-   *  tab   alt    R   shift  ctl    L  ||   esc spc   gui    -   bkspc  ret
+   *   q     w     f     p     g         ||        j     l     u     y     ;
+   *   a     r     s     t     d         ||        h     n     e     i     o
+   *   z     x     c     v     b         ||        k     m     ,    dot    /
+   *  tab   alt    R   shift  ctl    L   ||   esc spc   gui    -   bkspc  ret
    */
   [COLE] = KEYMAP (
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
@@ -84,10 +102,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   /* LEFT: Symbol / Numeric
-   *   .     `     ~     [     ]        ||        .     7     8     9     /
-   * shift   "     _     (     )        ||        .     4     5     6     *
-   *  ctl    '     |     {     }        ||        =     1     2     3     -
-   *   .     .     .     <     >     .  || toLR  spc    0     .    dot    +
+   *   .     `     ~     [     ]         ||        .     7     8     9     /
+   * shift   "     _     (     )         ||        .     4     5     6     *
+   *  ctl    '     |     {     }         ||        =     1     2     3     -
+   *   .     .     .     <     >     .   || toLR  spc    0     .    dot    +
    */
   [L] = KEYMAP (
     _,       KC_GRV,  KC_TILD, KC_LBRC, KC_RBRC,                    _,       KC_7,    KC_8,    KC_9,    KC_SLSH,
@@ -109,31 +127,36 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _,       BIND,    LAPP,    _,       _,       _,       LS_LR,    KC_SPC,  _,       _,       _,       _
   ),
 
-  /* RIGHT: Symbol keys
-   *  ->    <$>   <|>    .     .       ||        ~     &     *     =     `
-   *  <-    <*>    .     .     .       ||        |     $     %     ^     "
-   *  =>     *>    .     .     .       ||        _     !     @     #     '
-   *  >>=   <*     .     .     .  toRL ||  .     .     .     .     .     \
-   */
-  [R] = KEYMAP (
-    RARR,    FMAP,   ALTV,    KC_LBRC, KC_RBRC,                    KC_TILD, KC_AMPR, KC_ASTR, KC_EQL,  KC_GRV,
-    LARR,    APP,    _,       KC_LPRN, KC_RPRN,                    KC_PIPE, KC_DLR,  KC_PERC, KC_CIRC, KC_DQT,
-    FARR,    RAPP,   _,       KC_LCBR, KC_RCBR,                    KC_UNDS, KC_EXLM, KC_AT,   KC_HASH, KC_QUOT,
-    BIND,    LAPP,   _,       _,       _,       LS_RL,   _,        _,       _,       _,       _,       KC_BSLS
-  ),
 
   /* LEFT-RIGHT: Function keys
-   *   .     .     .     .     .        ||             F7    F8    F9    F10
-   *   .     .     .     .     .        ||             F4    F5    F6    F11
+   * reset   .     .     .     .        ||             F7    F8    F9    F10
+   * game    .     .     .     .        ||             F4    F5    F6    F11
    *   .     .     .     .     .        ||             F1    F2    F3    F12
    *   .     .     .     .     .     .  ||  .     .     .     .     .     .
    */
   [LR] = KEYMAP (
     RESET,   _,       _,       _,       _,                          _,       KC_F7,   KC_F8,   KC_F9,   KC_F10,
-    _,       _,       _,       _,       _,                          _,       KC_F4,   KC_F5,   KC_F6,   KC_F11,
+    DF(GAME),_,       _,       _,       _,                          _,       KC_F4,   KC_F5,   KC_F6,   KC_F11,
     _,       _,       _,       _,       _,                          _,       KC_F1,   KC_F2,   KC_F3,   KC_F12,
     _,       _,       _,       _,       _,      _,       _,         _,       _,       _,       _,       _
   ),
+
+  /* RIGHT: Arrow and media keys
+   *   .     .     .     .   volup       ||          .   pgup   up   pgdwn   .
+   *   .     .     .     .   voldn       ||          .   left  down  right   .
+   *   .     .     .     .   mute        ||          .     .     .     .     .
+   *   .     .     .     .     .         ||          .     .     .     .     .
+   *   .     .     .     .     .     .   ||   .      .     .     .     .     .
+   */
+
+  [R] = KEYMAP (
+    _,       _,      _,       _,       KC_VOLU,                    _,       KC_PGDN, KC_UP,   KC_PGUP, _,
+    _,       _,      _,       _,       KC_VOLD,                    _,       KC_LEFT, KC_DOWN, KC_RGHT, _,
+    _,       _,      _,       _,       KC_MUTE,                    _,       _,       _,       _,       _,
+    _,       _,      _,       _,       _,       _,       _,        _,       _,       _,       _,       _
+  ),
+
+
 
   /* RIGHT-LEFT: Motion keys / Media Keys
    *   .   pgup   up   pgdwn   .        ||      volup   .     .     .   game
