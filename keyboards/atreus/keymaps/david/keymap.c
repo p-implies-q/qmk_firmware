@@ -77,7 +77,7 @@ enum custom_keycodes {
  */
 
 /*
-[] = KEYMAP (
+[] = LAYOUT (
   _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
   _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
   _,       _,      _,       _,       _,                          _,       _,       _,       _,       _,
@@ -94,7 +94,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   z     x     c     v     b         ||        k     m     ,    dot    /
    *  tab   alt    R   shift  ctl    L   ||   esc spc   gui    -   bkspc  ret
    */
-  [COLE] = KEYMAP (
+  [COLE] = LAYOUT (
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,                       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
     KC_A,    KC_R,    KC_S,    KC_T,    KC_D,                       KC_H,    KC_N,    KC_E,    KC_I,    KC_O,
     KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                       KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *  ctl    '     |     {     }         ||        =     1     2     3     -
    *   .     .     .     <     >     .   || toLR  spc    0     .    dot    +
    */
-  [L] = KEYMAP (
+  [L] = LAYOUT (
     _,       KC_GRV,  KC_TILD, KC_LBRC, KC_RBRC,                    _,       KC_7,    KC_8,    KC_9,    KC_SLSH,
     MO(LL),  KC_DQT,  KC_UNDS, KC_LPRN, KC_RPRN,                    _,       KC_4,    KC_5,    KC_6,    KC_ASTR,
     KC_LCTL, KC_QUOT, KC_PIPE, KC_LCBR, KC_RCBR,                    KC_EQL,  KC_1,    KC_2,    KC_3,    KC_MINS,
@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   *    .    =>     *>    .     .       ||        .     !     @     #     .
   *    .   >>=    <*     .     .  toRL ||  .     .     .     .     .     .
   */
-  [LL] = KEYMAP (
+  [LL] = LAYOUT (
     _,       RARR,    FMAP,    ALTV,    _,                          _,       KC_AMPR, KC_ASTR, KC_EQL,  _,
     _,       LARR,    APP,     _,       _,                          _,       KC_DLR,  KC_PERC, KC_CIRC, _,
     _,       FARR,    RAPP,    _,       _,                          _,       KC_EXLM, KC_AT,   KC_HASH, _,
@@ -134,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .     .     .     .     .        ||             F1    F2    F3    F12
    *   .     .     .     .     .     .  ||  .     .     .     .     .     .
    */
-  [LR] = KEYMAP (
+  [LR] = LAYOUT (
     RESET,   _,       _,       _,       _,                          _,       KC_F7,   KC_F8,   KC_F9,   KC_F10,
     DF(GAME),_,       _,       _,       _,                          _,       KC_F4,   KC_F5,   KC_F6,   KC_F11,
     _,       _,       _,       _,       _,                          _,       KC_F1,   KC_F2,   KC_F3,   KC_F12,
@@ -149,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .     .     .     .     .     .   ||   .      .     .     .     .     .
    */
 
-  [R] = KEYMAP (
+  [R] = LAYOUT (
     _,       _,      _,       _,       KC_VOLU,                    _,       KC_PGDN, KC_UP,   KC_PGUP, _,
     _,       _,      _,       _,       KC_VOLD,                    _,       KC_LEFT, KC_DOWN, KC_RGHT, _,
     _,       _,      _,       _,       KC_MUTE,                    _,       _,       _,       _,       _,
@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .     .     .     .     .        ||      mute    .     .     .     .
    * reset   .     .     .     .     .  ||  .     .     .     .     .     .
    */
-  [RL] = KEYMAP (
+  [RL] = LAYOUT (
     _,       KC_PGDN, KC_UP,   KC_PGUP, _,                          KC_VOLU, _,       _,       _,       DF(GAME),
     _,       KC_LEFT, KC_DOWN, KC_RGHT, _,                          KC_VOLD, _,       _,       _,       _,
     _,       _,       _,       _,       _,                          KC_MUTE, _,       _,       _,       _,
@@ -178,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * shift   z     x     c     v        ||        .     .     .     .     .
    *  tab   alt    m   GF/Rt  G#/S   .  ||  .     .     .     .     .     .
    */
-  [GAME] = KEYMAP (
+  [GAME] = LAYOUT (
     KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,                       _,       _,       _,       _,       DF(COLE),
     KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,                       _,       _,       _,       _,       _,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,                       _,       _,       _,       _,       _,
@@ -192,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .     1     2     3     .        ||        .     .     .     .     .
    *   .     .     .     .     .     .  ||  .     .     .     .     .     .
    */
-  [GNUM] = KEYMAP (
+  [GNUM] = LAYOUT (
     _,       KC_7,    KC_8,    KC_9,    KC_0,                       _,       _,       _,       _,       _,
     _,       KC_4,    KC_5,    KC_6,    _,                          _,       _,       _,       _,       _,
     _,       KC_1,    KC_2,    KC_3,    _,                          _,       _,       _,       _,       _,
@@ -206,7 +206,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .    f1    f2    f3     .        ||        .     .     .     .     .
    *   .     .     .     .     .     .  ||  .     .     .     .     .     .
    */
-  [GFN] = KEYMAP (
+  [GFN] = LAYOUT (
     _,       KC_F7,   KC_F8,   KC_F9,   _,                          _,       _,       _,       _,       _,
     _,       KC_F4,   KC_F5,   KC_F6,   _,                          _,       _,       _,       _,       _,
     _,       KC_F1,   KC_F2,   KC_F3,   _,                          _,       _,       _,       _,       _,
