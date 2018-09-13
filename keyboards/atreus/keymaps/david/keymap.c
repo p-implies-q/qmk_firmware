@@ -105,13 +105,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    *   .     `     ~     [     ]         ||        .     7     8     9     /
    * shift   "     _     (     )         ||        .     4     5     6     *
    *  ctl    '     |     {     }         ||        =     1     2     3     -
-   *   .     .     .     <     >     .   || toLR  spc    0     .    dot    +
+   *   .     .          <     >     .   || toLR  spc    0     .    dot    +
    */
   [L] = LAYOUT (
-    _,       KC_GRV,  KC_TILD, KC_LBRC, KC_RBRC,                    _,       KC_7,    KC_8,    KC_9,    KC_SLSH,
+    _,       KC_GRV,  KC_TILD, KC_LBRC, KC_RBRC,                    KC_RCTL, KC_7,    KC_8,    KC_9,    KC_SLSH,
     MO(LL),  KC_DQT,  KC_UNDS, KC_LPRN, KC_RPRN,                    _,       KC_4,    KC_5,    KC_6,    KC_ASTR,
     KC_LCTL, KC_QUOT, KC_PIPE, KC_LCBR, KC_RCBR,                    KC_EQL,  KC_1,    KC_2,    KC_3,    KC_MINS,
-    _,       _,       _,       KC_LT,   KC_GT,   _,       LS_LR,    KC_SPC,  KC_0,    _,       KC_DOT,  KC_PLUS
+    _,       _,       KC_BSLS, KC_LT,   KC_GT,   _,       LS_LR,    KC_SPC,  KC_0,    _,       KC_DOT,  KC_PLUS
   ),
 
   /* LEFT-LEFT: Secondary symbols
@@ -173,15 +173,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* Gaming base
    *
-   *  esc    q     w     e     r        ||        .     .     .     .   cole
-   *  ctl    a     s     d     f        ||        .     .     .     .     .
-   * shift   z     x     c     v        ||        .     .     .     .     .
+   *  esc    q     w     e     r        ||        t     .     .     .   cole
+   *  ctl    a     s     d     f        ||        g     .     .     .     .
+   * shift   z     x     c     v        ||        b     .     .     .     .
    *  tab   alt    m   GF/Rt  G#/S   .  ||  .     .     .     .     .     .
    */
   [GAME] = LAYOUT (
-    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,                       _,       _,       _,       _,       DF(COLE),
-    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,                       _,       _,       _,       _,       _,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,                       _,       _,       _,       _,       _,
+    KC_ESC,  KC_Q,    KC_W,    KC_E,    KC_R,                       KC_T,    _,       _,       _,       DF(COLE),
+    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,                       KC_G,    _,       _,       _,       _,
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,                       KC_B,    _,       _,       _,       _,
     KC_TAB,  KC_LALT, KC_M,    GF_RET,  GN_SPC,  _,       _,        _,       _,       _,       _,       _
   ),
 
